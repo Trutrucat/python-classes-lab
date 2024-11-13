@@ -66,19 +66,16 @@ class Game:
             self.switch_turn()
 
     def check_for_winner(self):
-        # Check rows
         for row in ['1', '2', '3']:
             if self.board['a' + row] == self.board['b' + row] == self.board['c' + row] and self.board['a' + row] is not None:
                 self.winner = self.board['a' + row]
                 return True
 
-        # Check columns
         for col in ['a', 'b', 'c']:
             if self.board[col + '1'] == self.board[col + '2'] == self.board[col + '3'] and self.board[col + '1'] is not None:
                 self.winner = self.board[col + '1']
                 return True
 
-        # Check diagonals
         if self.board['a1'] == self.board['b2'] == self.board['c3'] and self.board['a1'] is not None:
             self.winner = self.board['a1']
             return True
